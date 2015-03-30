@@ -28,7 +28,7 @@ public class Solution{
 		}
 	}
 }
-public class Solution{
+public class Solution{//相当于将原来的char【】扩容后，然后再从原来end开始从后往前扫描，边扫边往后面添加元素
 	public void replaceSpace(char[] string, int length){
 		if(string == null || string.length == 0)
 			return;
@@ -45,14 +45,14 @@ public class Solution{
 			if(string[i] != ' ')
 			{
 				string[newLength -1] = string[i];
-				newLength = newLength -1;
+				newLength = newLength -1;//注意这个地方length的变化
 			}
 			else
 			{
 				string[newLength - 1] = '0';
 				string[newLength - 2] = '2';
 				string[newLength - 3] = '%';
-				newLength = newLength -3;
+				newLength = newLength -3;//注意这个地方length的变化
 			}
 		}
 	}
