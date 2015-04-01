@@ -19,7 +19,7 @@ public class Solution{
 				count = 1;
 			}
 		}
-		res.append((check + ""), count);
+		
 		if(res.toString().length() > str.length)
 			return str;
 		else
