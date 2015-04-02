@@ -23,6 +23,7 @@ public class Solution1{
 
 //if no buffer is allowed, we can use two pointer
 //one is iterate whole list, the other is for check
+//time complexity O(n), space complexityO(1)
 public class Solution2{
 	public void deleteDuplicates(LinkedListNode head){
 		if(head == null)
