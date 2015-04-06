@@ -1,6 +1,6 @@
 //implement an algorithm to delete a node in the middle of a singly linked list, given only access to that node
 public class Solution{
-	public void deleteMid(LinkedListNode n){
+	public boolean deleteMid(LinkedListNode n){
 		if(n == null || n.next == null)
 			return false;
 		LinkedListNode next = n.next;
