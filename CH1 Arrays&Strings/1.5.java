@@ -6,7 +6,7 @@ public class Solution{
 	public String compressString(string str){
 		StringBuffer res = new StringBuffer();
 		char[] str = str.toCharArray();
-		char check = str1[0];
+		char check = str[0];
 		int count = 1;
 		for(i = 1; i < str.length; i++)
 		{
