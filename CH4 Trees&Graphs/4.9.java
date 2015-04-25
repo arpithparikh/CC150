@@ -1,4 +1,5 @@
 //do a BFS to check whether each level
+//space complexity is O(logn), time complexity O(nlogn), n nodes and each node do a recursive, which is logn
 public class Solution{
 	public void findSum(TreeNode node, int sum, int[] path, int level){
 		if(root == null)
