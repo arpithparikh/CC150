@@ -6,7 +6,7 @@ public class Solution{
 			return;
 		path[level] = node.data;
 		int t = 0;
-		for(int i < level;i>=0;i--)
+		for(int i = level;i>=0;i--)
 		{
 			t += path[i];
 			if(i == sum)

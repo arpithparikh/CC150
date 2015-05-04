@@ -1,6 +1,6 @@
 //check if a binary tree is balanced
 //find height of tree from recursive function,but for each node, time complexity is O(nlogn)
-//total time complexity is O(n^2logn)
+//total time complexity is O(2nlogn) = O(nlogn)
 public class Solution1{
 	public boolean isBalanced(TreeNode root){
 		if(root == null)
