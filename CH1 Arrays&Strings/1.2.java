@@ -21,8 +21,8 @@ public Solution{
 		for(int i =0; i<str.length()/2; i++)
 		{
 			temp = str.charAt(i);
-			str.charAt(str.length()-i) = str.charAt(i);
-			str.charAt(i) = temp;
+			str.charAt(i) = str.charAt(str.length()-i);
+			str.charAt(str.length()-i) = temp;
 		}
 		return str;
 	}
