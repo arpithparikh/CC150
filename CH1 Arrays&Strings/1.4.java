@@ -55,5 +55,39 @@ public class Solution{//相当于将原来的char【】扩容后，然后再从�
 				newLength = newLength -3;//注意这个地方length的变化
 			}
 		}
+		return;
+	}
+}
+
+
+
+
+public class Solution{
+	public void replaceSpace(char[] string, int length){
+		if(string == null || string.length == 0)
+			return;
+		int count = 0;
+		for(int i =0;i<string.length;i++)
+		{
+			if(string[i] == ' ');
+			count++;
+		}
+		int length = string.length + count*2;
+		for(int i =str.length-1;i>=0;i--)
+		{
+			if(string[i] =' ')
+			{
+				string[length-1] = '0';
+				string[length-2] = '2';
+				string[length-3] = '%';
+				length-=3;
+			}
+			else
+			{
+				string[length-1] = string[i];
+				length-=1;
+			}
+		}
+		return;
 	}
 }
