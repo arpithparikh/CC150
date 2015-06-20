@@ -8,17 +8,18 @@
 //the length of array is array.length
 //array[i], str.charAt(i). array=>[], string => ()
 //time complexity is O(n)
-public Solution{
+public class Solution{
 	public boolean isUnique(String str){
-		if(str == null || str.length() > 128 || str.length()< 0)
+		if(str == null || str.length()<0||str.length()>128)
 			return false;
-		boolean check  = new boolean[256];
-		for(i = 0;i<str.length();i++)
+		boolean check = new boolean[256];
+		for(int i =0;i<str.length();i++)
 		{
-			int val = str.charAt(i);
-			if(check[val])
+			if(boolean[str.charAt(i)])
 				return false;
-			else check[val] = true;
+			else
+				check[str.charAt(i)] = true;
 		}
-	}return true;
+		return true;
+	}
 }
