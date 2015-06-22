@@ -1,5 +1,6 @@
 //implement an algorithm to find te kth to last element of a singly linked list
 //recursive solutions are often clear but less optimal
+//time O(n), space O(1)
 class ListNode {
 	int val;
 	ListNode next;
