@@ -35,7 +35,7 @@ public class Solution {
 			return -1;
 		ListNode fast = head;
 		ListNode slow = head;
-		for(int i =0;i<k-1;i++)
+		for(int i =0;i<k-1;i++)//如果找倒数第k个，那么就是k-1，如果要找到倒数第k+1个，那么就是k
 			fast = fast.next;
 		while(fast.next!= null)
 		{
