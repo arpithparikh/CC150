@@ -4,39 +4,107 @@
 //Solution1, first sort the string, because the string 1 and string 2 are ust characters in different order
 //So sort the string first will put the characters from two permutations in the same order
 // we just need to compare the sorted verison of two strings
-public class Solution1{
-	public boolean isPermutation(String str1, String str2){
-		if(str1==null||str2==null||str1.length() ==0||str2.length()==0||str1.length()!= str2.length())
-			return false;
-		String s1 = new String(str1.length());
-		String s2 = new String(str2.length());
-		s1 = Sort.str1;
-		s2 = Sort.str2;
-		for(int i =0;i<str1.length();i++)
-		{
-			if(s1.charAt(i) == s2.charAt(i))
-				return true;
-		}
-			
-		return false;
-	}
-		
-}
 
 //we assume that the character set is ASCII
-public class Solution2{
-	public boolean isPermutation(String str1. String str2){
-		if(str1.length() != str2.length())
+package CC150;
+
+import java.util.HashMap;
+
+public class Solution {
+	public static void main(String[] args) {
+		// string no same size
+		String str1 = "abcdfs";
+		String str2 = "cba";
+		System.out.println(isPermutation(str1, str2));
+		// String same size but not permutaion
+		str1 = "fasfasfsahf;uip";
+		str2 = "fasfasfsahfauip";
+		System.out.println(isPermutation(str1, str2));
+		// two null String
+		str1 = null;
+		str2 = null;
+		System.out.println(isPermutation(str1, str2));
+		// two empty String
+		str1 = "";
+		str2 = "";
+		System.out.println(isPermutation(str1, str2));
+		// two permutaion String
+		str1 = "asdfghjkl;l";
+		str2 = "asdfghjkl;l";
+		System.out.println(isPermutation(str1, str2));
+ 
+	}
+ 
+	private static boolean isPermutation(String str1, String str2) {
+		if(str1 == null || str2 == null)
 			return false;
-		int[] letters = new int[256];//ASCII码有256个状态
-		char[] s_array = s.toCharArray();//Converts this string to a new character array.
-		for(char c : s_array)//cpunt number of each char in s
-		letters[c]++;
-		for(int i =0;i<str2.length();i++){
-			int c = (int) t.charAt(i);
-			if(--letters[c]<0)
+		char[] str11 = str1.toCharArray();
+		char[] str22 = str2.toCharArray();
+		if(str11.length != str22.length)
+			return false;
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		for(int i =0;i<str11.length;i++){
+			if(map.containsKey(str11[i])){
+				map.put(str11[i],map.get(str11[i])+1);
+			}
+			else
+				map.put(str11[i],1);
+		}
+		for(int i =0;i<str22.length;i++){
+			if(map.containsKey(str22[i]))
+			{
+				map.put(str22[i], map.get(str22[i])-1);
+			}
+		}
+		for(int i =0;i<str22.length;i++){
+			if(map.get(str22[i])!=0)
 				return false;
 		}
 		return true;
 	}
+ 
 }
+
+
+
+
+
+
+
+
+package CC150;
+
+import java.util.Hashtable;
+
+
+public class Solution {
+	public static void main(String[] args) {
+		// string no same size
+		String str1 = "abcdfs";
+		String str2 = "cba";
+		System.out.println(isPermutation(str1, str2));
+		// String same size but not permutaion
+		str1 = "fasfasfsahf;uip";
+		str2 = "fasfasfsahfauip";
+		System.out.println(isPermutation(str1, str2));
+		// two null String
+		str1 = null;
+		str2 = null;
+		System.out.println(isPermutation(str1, str2));
+		// two empty String
+		str1 = "";
+		str2 = "";
+		System.out.println(isPermutation(str1, str2));
+		// two permutaion String
+		str1 = "asdfghjkl;l";
+		str2 = "asdfghjkl;l";
+		System.out.println(isPermutation(str1, str2));
+ 
+	}
+ 
+	private static boolean isPermutation(String str1, String str2) {
+		
+	}
+ 
+}
+
