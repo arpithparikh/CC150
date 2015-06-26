@@ -54,3 +54,81 @@ public class Solution{
 		}
 	}
 }
+
+
+//second write, CC150 can run on myeclipse
+package CC150;
+
+
+public class Solution {
+	
+	
+	public static void setZeroRowColumn(int[][] matrix){
+		if(matrix == null || matrix.length == 0||matrix[0].length == 0)
+			return;
+		boolean colHasZero = false;
+		boolean rowHasZero = false;
+		for(int i =0;i<matrix.length;i++)
+		{
+			if(matrix[i][0] == 0){
+				colHasZero = true;
+				break;
+			}
+		}
+		for(int i =0;i<matrix[0].length;i++)
+		{
+			if(matrix[0][i] == 0){
+				rowHasZero = true;
+				break;
+			}
+		}
+		for(int i =1;i<matrix.length;i++){
+			for(int j =1;j<matrix[0].length;j++){
+				if(matrix[i][j] == 0){
+					matrix[i][0]=0;
+					matrix[0][j]=0;
+				}
+			}
+		}
+		for(int i =1;i<matrix.length;i++){
+			for(int j =1;j<matrix[0].length;j++){
+				if(matrix[i][0] == 0||matrix[0][j] == 0){
+					matrix[i][j]=0;
+				}
+			}
+		}
+		if(colHasZero)
+		{
+			for(int i =0;i<matrix.length;i++)
+				matrix[i][0] =0;
+		}
+		if(rowHasZero)
+		{
+			for(int i =0;i<matrix[0].length;i++)
+				matrix[0][i] = 0;
+		}
+		return;
+	}
+
+	public static void main(String[] args) {	
+
+		int[][] matrix = new int[][] { { 3, 1, 6, 23, 77 }, { 54, 7, 1, 56, 8 },
+				{ 6, 22, 55, 1, 7 }, { 0, 7, 58, 7, 54 }, { 9, 7, 8, 5, 22 } };
+		int n = matrix.length;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				System.out.print("," + matrix[i][j]);
+			}
+			System.out.println();
+		}
+	    setZeroRowColumn(matrix);	
+		System.out.println("======================");	
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				System.out.print("," + matrix[i][j]);
+			}
+			System.out.println();
+		}
+
+	}		
+}
