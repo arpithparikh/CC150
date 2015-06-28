@@ -1,29 +1,40 @@
 //implement a MyQueue class which implements a queue using two stacks
-public class MyQueue<T>{
-	Stack<T> stackNew, stackOld;
+package CC150;
+import java.util.Stack;
+
+class MyQueue{
+	Stack<Integer> stack1, stack2;
 	public MyQueue(){
-		stackNew = new Stack<T>();
-		stackOld = new Stack<T>();
+		stack1 = new Stack<Integer>();
+		stack2 = new Stack<Integer>();
 	}
-	public int size(){
-		return stackNew.size() + stackOld.size();
+	public void push(int x){
+		stack1.push(x);
 	}
-	public void add(T value){
-		stackNew.push(value);
-	}
-	private void shiftStacks(){
-		if(stackOld.isEmpty())
-		{
-			while(!stackNew.isEmpty())
-				stackOld.push(stackNew.pop());
+	public int pop(){
+		while(!stack1.isEmpty()){
+			stack2.push(stack1.pop());
 		}
+		return stack2.pop();
 	}
-	public T peek(){
-		shiftStacks();
-		return stackOld.peek();
+	public int peek(){
+		while(!stack1.isEmpty()){
+			stack2.push(stack1.pop());
+		}
+		return stack2.peek();
+		//return -1;
 	}
-	public T remove(){
-		shiftStacks();
-		return stackOld.pop();
-	}
+}
+
+public class Solution {
+	
+	public static void main(String[] args) {	
+		MyQueue test = new MyQueue();
+		test.push(1);
+		System.out.println(test.pop());
+		test.push(2);
+		test.push(3);
+		System.out.println(test.peek());
+		System.out.println(test.pop());
+	}		
 }

@@ -1,21 +1,26 @@
 //using additional stack to keep track of every minimum value
-public class Solution{
-	Stack<Integer> s2 = new Stack<Integer>();
-	public void push(int value){
-		if (value <= min())
-			s2.push(value);
-		s1.push(value);
-	}
-	public int pop(){
-		int value = s1.pop();
-		if(value == min())
-			s2.pop();
-		return value;
-	}
-	public int min(){
-		if(s2.isEmpty())
-			return -1;
-		else 
-			return s2.pop();
-	}
+class MinStack {
+	Stack<Integer> stack = new Stack<Integer>();
+	Stack<Integer> minStack = new Stack<Integer>();
+    public void push(int x) {
+        if(minStack.isEmpty()||x <= minStack.peek()){
+        	minStack.push(x);
+        }
+        stack.push(x);
+    }
+
+    public void pop() {
+        if(stack.peek().equals(minStack.peek())){
+        	minStack.pop();
+        }
+        stack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int getMin() {
+        return minStack.peek();
+    }
 }
