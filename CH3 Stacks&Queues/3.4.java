@@ -39,3 +39,37 @@ public class Solution{
 		}
 	}
 }
+
+
+//
+package CC150;
+import java.util.Stack;
+
+
+
+public class Solution {
+	
+
+	public static void hanoi(int n, Stack<Integer> srcStack, Stack<Integer> dstStack, Stack<Integer> helperStack){
+		if( n <= 0 ){
+			return;
+		} 
+		// 第一次进入时，问题规模还是n, 还没有进行分解。三个堆栈都以参数形式传递进来了。
+		hanoi( n - 1, srcStack, helperStack, dstStack);
+		dstStack.add( srcStack.pop() );
+		hanoi( n - 1, helperStack, dstStack, srcStack);
+
+	}
+
+	public static void main(String[] args) {	
+		Stack<Integer> stack1 = new Stack<Integer>();
+		Stack<Integer> stack2 = new Stack<Integer>();
+		Stack<Integer> stack3 = new Stack<Integer>();
+		stack1.push(4);stack1.push(3);stack1.push(2);stack1.push(1);
+		int size = stack1.size();
+		hanoi(size, stack1,stack3,stack2);
+		while( !stack3.empty() ){
+			System.out.println(stack3.pop());
+		}
+	}		
+}
