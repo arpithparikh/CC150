@@ -51,29 +51,39 @@ class SetOfStacks{
 	}
 
 	public void push(int val){
-		crtStackIndex = container.size();
-		if(container.get(crtStackIndex).size() == threshold){
-			Stack<Integer> newStack = new Stack<Integer>();
-			newStack.push(val);
-			container.add(newStack);
-			crtStackIndex += 1;
+		if(container.size() == 0)
+		{
+			Stack<Integer> temp = new Stack<Integer>();
+			temp.push(val);
+			container.add(temp);
+			crtStackIndex = 0;
 		}
-		else{
-			container.get(crtStackIndex).push(val);
+		else
+		{
+			if(container.get(crtStackIndex).size() == threshold){
+				Stack<Integer> newStack = new Stack<Integer>();
+				newStack.push(val);
+				container.add(newStack);
+				crtStackIndex++;
+			}
+			else{
+				container.get(crtStackIndex).push(val);
+			}
 		}
 	}
 
 	public int pop(){
-		crtStackIndex = container.size();
-		Stack<Integer> temp = container.get(crtStackIndex);
-		int res = temp.pop();
-		if(temp.size()==0){
-			crtStackIndex = crtStackIndex -1;
+		if(container.size()!=0){
+			Stack<Integer> crtStack = container.get(crtStackIndex);
+			int top = crtStack.pop();
+			if(crtStack.size() == 0){
+				container.remove(crtStackIndex);
+				crtStackIndex--;
+			}
+			return top;
 		}
-		if(crtStackIndex == -1)
-			return -1;
-		else return res;
-		}
+		return -1;
+	}
 
 }
 
