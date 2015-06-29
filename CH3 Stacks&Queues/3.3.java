@@ -37,22 +37,43 @@ FOLLOW UP
 Implement a function popAt(int index) which performs a pop operation on a specific sub-stack.
 */
 package CC150;
+import java.util.ArrayList;
 import java.util.Stack;
 
 class SetOfStacks{
-
+	int crtStackIndex;
+	int threshold;
+	ArrayList<Stack<Integer>> container;
 	public SetOfStacks(int val){
-
+		threshold = val;
+		container = new ArrayList<Stack<Integer>>();
+		crtStackIndex = 0;
 	}
 
 	public void push(int val){
-
+		crtStackIndex = container.size();
+		if(container.get(crtStackIndex).size() == threshold){
+			Stack<Integer> newStack = new Stack<Integer>();
+			newStack.push(val);
+			container.add(newStack);
+			crtStackIndex += 1;
+		}
+		else{
+			container.get(crtStackIndex).push(val);
+		}
 	}
 
 	public int pop(){
-
-		return -1;
-	}
+		crtStackIndex = container.size();
+		Stack<Integer> temp = container.get(crtStackIndex);
+		int res = temp.pop();
+		if(temp.size()==0){
+			crtStackIndex = crtStackIndex -1;
+		}
+		if(crtStackIndex == -1)
+			return -1;
+		else return res;
+		}
 
 }
 
