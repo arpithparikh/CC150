@@ -1,3 +1,4 @@
+//original first time write
 public class Solution{
 	ArrayList<Stack> res = new ArrayList<Stack>();
 	public void push(int value){
@@ -25,6 +26,7 @@ public class Solution{
 		return res.(res.size()-1);
 	}
 }
+//second write
 /*
 3.3
 Imagine a (literal) stack of plates. If the stack gets too high, it might topple. 
