@@ -49,9 +49,7 @@ For the purposes of this question, a balanced tree is defined to be a tree such 
 of the two subtrees of any node never differ by more than one.
 */
 
-
-
-package cc150Test;
+package CC150;
 
 
 class TreeNode {
@@ -61,10 +59,24 @@ class TreeNode {
       TreeNode(int x) { val = x; }
 }
 
-public class Test {
+public class Solution {
 	
 	public static boolean isBalanced(TreeNode root){
-		return false;
+		if(root == null){
+			return false;
+		}
+		int heightDiff = Math.abs(getHeight(root.left) - getHeight(root.right));
+		if(heightDiff>1){
+			return false;
+		}
+		else
+			return isBalanced(root.left)&&isBalanced(root.right);
+	}
+	private static int getHeight(TreeNode root){
+		if(root == null){
+			return 0;
+		}
+		return Math.max(getHeight(root.left), getHeight(root.right))+1;
 	}
 	
 	public static TreeNode test1(){
