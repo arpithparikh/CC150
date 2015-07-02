@@ -40,6 +40,25 @@ public class Solution2{
 	}
 }
 
+public class Solution{
+ 	public boolean isBalanced(TreeNode root){
+ 		if(maxDepth(root) != 0)
+ 			return true;
+ 		else
+ 			return false;
+ 	}
+ 	private int maxDepth(TreeNode root){
+ 		if(root == null)
+ 			return 1;
+ 		int left = maxDepth(root.left);
+ 		int right = maxDepth(root.right);
+ 		if(left == 0 || right == 0 || Math.abs(left - right) >1)
+ 			return 0;
+ 		else
+ 			return Math.max(left, right)+1;
+ 	}
+ }
+
 
 
 /*
