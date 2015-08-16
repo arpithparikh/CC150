@@ -8,6 +8,7 @@
 //recursion, 但是多了很多重复运算，这样子在运行时间上并不是很理想，因此可以想到用DP来解决问题
 public class Solution {
   public int f(String exp, boolean result, int s, int e) {
+    //当只有一位的时候的情况考虑或者说递归到最底端的时候的情况考虑
     if(s == e) {
       if(exp.charAt(s) == '1' && result == true) {
         return 1;
@@ -18,9 +19,12 @@ public class Solution {
       return 0;
     }
     int c = 0;
+    //分result为true或者false
     if(result == true) {
       for(int i = s + 1; i <= e; i += 2) {
         char op = exp.charAt(i);
+        //基本情况的组合运算
+        //这个*相当于是方案数相加，如果是0 * 1 = 0，那么就是相当于没有方案，
         if(op == '&') {
           c += f(exp, true, s, i - 1) * (exp, true, i + 1, e);
         }
@@ -117,7 +121,9 @@ public class Solution {
 
 //利用卡特兰数，
 //https://en.wikipedia.org/wiki/Catalan_number
-//利用卡特兰数来生成总数，这样子只需要计算出true或者false的数目，对应剩下的直接用卡特兰数减去即可得到
+//利用卡特兰数来生成总数，
+//由wiki可以看出卡特兰数的相关定义就是跟genetate parentheses相关的，
+//这样子只需要计算出true或者false的数目，对应剩下的直接用卡特兰数减去即可得到，减少了运算的时间
 public class Solution {
   public int f(String exp, boolean result, int s, int e, HashMap<String, Integer> q) {
     String key = "" + s + e;
